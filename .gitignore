@@ -1,0 +1,5 @@
+*.o
+src/*.c~
+src/#*.c#
+test/*.c~
+test/#*.c#
