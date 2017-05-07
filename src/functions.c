@@ -6,6 +6,8 @@ int words = 0;
 
 void printToBuf(char files[][NAMELEN], char* way, char* name){
 	char toArr[NAMELEN];
+	for (int i = 0; i < NAMELEN; i++)
+		toArr[i] = '\0';
 	strcat(toArr, way);
 	strcat(toArr, "/");
 	strcat(toArr, name);	
