@@ -6,4 +6,5 @@
 void getFiles(char files[][NAMELEN], char* argv);
 
 void searchStr(char* file, char* argv);
+int finder(char *string, char* find);
 #endif
