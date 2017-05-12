@@ -27,6 +27,7 @@ void searchStr(char* file, char* strFnd){
         if(i != 0){
             j++;
             printf("Найдены соответствия в %d строке\n", counter);
+            printf("%s\n", strSrc);
         }
 
     }
