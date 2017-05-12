@@ -10,11 +10,11 @@ int main(int argc, char * argv[]){
 			files[i][j] = '\0';
 		}
 	}	
-	printf("Search in : %s\n", argv[1]);
-	printf("%c\n", files[2][2]);
-	getFiles(files, argv[1]);
-	for (int y = 0; y < words; y++){
-		printf("%s\n", files[y]);
+	//printf("Search in : %s\n", argv[1]);
+	getFiles(files, argv[2]);
+		//printf("%s\n", files[y]);
+	for (int i = 0; i < words; i++){
+		searchStr(files[i], argv[1]);
 	}
 	return 0;
 }

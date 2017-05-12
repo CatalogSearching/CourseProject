@@ -17,6 +17,7 @@ void printToBuf(char files[][NAMELEN], char* way, char* name){
 }
 void getFiles(char files[][NAMELEN], char* argv){
 	DIR* this;
+	int m;
 	char newArg[NAMELEN];
 	this = opendir(argv);
 	struct dirent* h1;
@@ -34,6 +35,19 @@ void getFiles(char files[][NAMELEN], char* argv){
 	}
 }
 
+int finder(char *string, char* find){
+    int flag = 0;
+    char *p;
+    p = strstr(string, find);
+    if (p == NULL){
+        return flag;
+    }else{
+        flag ++;
+        string = p + strlen(find);
+        finder(string, find);
+    }
+    return 1;
+}
 void searchStr(char* file, char* strFnd){
     char strSrc[1000];
     char *estr;
@@ -64,16 +78,3 @@ void searchStr(char* file, char* strFnd){
     fclose(infile);
 }
 
-int finder(char *string, char* find){
-    int flag = 0;
-    char *p;
-    p = strstr(string, find);
-    if (p == NULL){
-        return flag;
-    }else{
-        flag ++;
-        string = p + strlen(find);
-        finder(string, find);
-    }
-    return 1;
-}
