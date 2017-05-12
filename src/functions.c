@@ -17,19 +17,20 @@ void printToBuf(char files[][NAMELEN], char* way, char* name){
 	strcpy(files[words], toArr);
 	words++;
 }
-void getFiles(char files[][NAMELEN], char* argv){
+int getFiles(char files[][NAMELEN], char* argv){
 	DIR* this;
-	int m;
+	int m, c = 0;//mod (int m;)
 	char newArg[NAMELEN];
 	this = opendir(argv);
 	if (this == NULL){
 		printf("%s Нет такого файла или директории\n", argv);
-		return;
+		return 0;//mod (return;)
 	}
 	struct dirent* h1;
 	while ((h1 = readdir(this)) != NULL){
 		if (h1->d_type == 8){
 			printToBuf(files, argv, h1->d_name);
+			c++;
 		}
 		else if (h1->d_type == 4 && (m = strcmp(h1->d_name, ".")) != 0 && ( m = strcmp(h1->d_name, "..") != 0)){
 			strcpy(newArg, argv);
@@ -39,6 +40,7 @@ void getFiles(char files[][NAMELEN], char* argv){
 		}
 
 	}
+	return c;
 }
 /*
 finder() - функция поиска всех вхождений подстроки find в строке string
@@ -56,13 +58,13 @@ int finder(char *string, char* find){
         string = p + strlen(find);
         finder(string, find);
     }
-    return 1;
+	return flag;
 }
 /*
 searchStr - функция поиска и вывода строк, из файла, в которых найдены подстроки strFnd
 file - путь к файлу
 */
-void searchStr(char* file, char* strFnd){
+int searchStr(char* file, char* strFnd){
 
     char strSrc[1000];
     char *estr;
@@ -74,7 +76,7 @@ void searchStr(char* file, char* strFnd){
 
 	if (infile == NULL){
 		printf("Файл не найден\n");
-		return;
+		return 0;
 	}
 
     while(!feof(infile)){
@@ -86,7 +88,7 @@ void searchStr(char* file, char* strFnd){
 
         i = finder(strSrc, strFnd);
         if(i != 0){
-            j++;
+            j = j + i;
             printf("Найдены соответствия в %d-й строке: ", counter);
 			strSrc[strlen(strSrc) - 1] = '\0';
             printf("%s\n", strSrc);
@@ -110,4 +112,5 @@ void searchStr(char* file, char* strFnd){
     }
 
     fclose(infile);
+	return j;
 }
