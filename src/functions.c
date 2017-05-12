@@ -56,7 +56,7 @@ int finder(char *string, char* find){
     } else {
         flag ++;
         string = p + strlen(find);
-        finder(string, find);
+        flag = flag + finder(string, find);
     }
 	return flag;
 }
@@ -87,8 +87,8 @@ int searchStr(char* file, char* strFnd){
         }
 
         i = finder(strSrc, strFnd);
+		j = j + i;
         if(i != 0){
-            j = j + i;
             printf("Найдены соответствия в %d-й строке: ", counter);
 			strSrc[strlen(strSrc) - 1] = '\0';
             printf("%s\n", strSrc);
