@@ -23,7 +23,7 @@ int getFiles(char files[][NAMELEN], char* argv){
 	char newArg[NAMELEN];
 	this = opendir(argv);
 	if (this == NULL){
-		printf("%s Нет такого файла или директории\n", argv);
+		printf("%s Ошибка: директории не существует\n", argv);
 		return 0;//mod (return;)
 	}
 	struct dirent* h1;
