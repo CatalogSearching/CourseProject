@@ -1,7 +1,7 @@
 #ifndef FUNC_C
 #define FUNC_C
 #ifndef NAMELEN
-#define NAMELEN 20
+#define NAMELEN 50
 #endif
 
 int getFiles(char files[][NAMELEN], char* argv);

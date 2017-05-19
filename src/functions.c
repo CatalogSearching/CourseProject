@@ -17,9 +17,10 @@ void printToBuf(char files[][NAMELEN], char* way, char* name){
 	strcpy(files[words], toArr);
 	words++;
 }
+int c = 0;
 int getFiles(char files[][NAMELEN], char* argv){
 	DIR* this;
-	int m, c = 0;//mod (int m;)
+	int m;
 	char newArg[NAMELEN];
 	this = opendir(argv);
 	if (this == NULL){
