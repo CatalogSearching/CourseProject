@@ -38,7 +38,7 @@ CTEST(GetFiles, Filedoesntexist){
 /*CTEST(GetFiles, GetValue){
 	const int exp = 5;
 	char arr[6][NAMELEN];
-	int v1; 
+	int v1;
 	v1 = getFiles(arr, "Direct");
 	ASSERT_EQUAL(exp, v1);
 }*/
@@ -52,7 +52,7 @@ char src7[] = "";
 
 char file1[] = "../data/text";//true
 char file2[] = "../data/ts/text3";//true
-char file3[] = "../data/";//false
+char file3[] = "../data/text3";//false
 
 
 
