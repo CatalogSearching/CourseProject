@@ -11,7 +11,14 @@ char src5[] = "This is test source strring 3";
 char src6[] = "lol";
 char src7[] = "";
 
+char file1[] = "../data/text";//true
+char file2[] = "../data/ts/text3";//true
+char file3[] = "../data/";//false
+
+
+
 char find[] = "string";
+char find2[] = "test";
 
 CTEST(SearchTest, finder_test_1){
     int exp = finder(src1, find);
@@ -45,5 +52,29 @@ CTEST(SearchTest, finder_test_6){
 
 CTEST(SearchTest, finder_test_7){
     int exp = finder(src7, find);
+    ASSERT_EQUAL(0, exp);
+}
+
+CTEST(SearchTest, searchStr_test1){
+    printf("\nДолжно быть найдено 1 соответствие\n");
+    int exp = searchStr(file1, find2);
+    ASSERT_EQUAL(1, exp);
+}
+
+CTEST(SearchTest, searchStr_test2){
+    printf("\nДолжно быть найдено 1 соответствие\n");
+    int exp = searchStr(file2, find2);
+    ASSERT_EQUAL(1, exp);
+}
+
+CTEST(SearchTest, searchStr_test3){
+    printf("\nНе должно быть найдено соответствий\n");
+    int exp = searchStr(file3, find2);
+    ASSERT_EQUAL(0, exp);
+}
+
+CTEST(SearchTest, searchStr_test4){
+    printf("\nФайл не должен открыться\n");
+    int exp = searchStr("acv", find2);
     ASSERT_EQUAL(0, exp);
 }
