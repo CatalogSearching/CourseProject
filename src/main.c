@@ -8,7 +8,7 @@ int main(int argc, char * argv[]){
 		char help_flag[] = "-help";
 		if(argc == 2){
 			if(strcmp(argv[1], help_flag) == 0){
-				printf("Тут должен быть help\n");
+				printf("./bin/search <строка> <пути до директорий через пробел>\n");
 				return 0;
 			}
 			printf("Некорректное количество аргументов, введите ./search -help для просмотра доступных команд\n");
