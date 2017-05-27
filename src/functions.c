@@ -89,7 +89,7 @@ int searchStr(char* file, char* strFnd){
 
 	if (infile == NULL){
 		printf("Файл не найден\n");
-		return 1;
+		return -1;
 	}
 
     while (!feof(infile)){

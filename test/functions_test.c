@@ -5,34 +5,34 @@
 
 char vals[5][NAMELEN];
 CTEST(GetFiles, GetValue){
-	int v1 = getFiles(vals, "Direct");
+	int v1 = getFiles(vals, "test/Direct");
 	const int exp = 5;
 	ASSERT_EQUAL(exp, v1);
 }
 CTEST(GetFiles, File_1){
 	for (int i = 0; i < 5; i++)
 		printf("%s\n", vals[i]);
-	const char exp[] = "Direct/text.txt";
+	const char exp[] = "test/Direct/OneMoreDir/text.txt";
 	ASSERT_STR(exp, vals[0]);
 }
 CTEST(GetFiles, File_2){
-	const char exp[] = "Direct/anotherDir/MoreTexts.txt";
+	const char exp[] = "test/Direct/text.txt";
 	ASSERT_STR(exp, vals[1]);
 }
 CTEST(GetFiles, File_3){
-	const char exp[] = "Direct/anotherDir/textFile.txt";
+	const char exp[] = "test/Direct/anotherDir/MoreTexts.txt";
 	ASSERT_STR(exp, vals[2]);
 }
 CTEST(GetFiles, File_4){
-	const char exp[] = "Direct/AgainText.txt";
+	const char exp[] = "test/Direct/anotherDir/textFile.txt";
 	ASSERT_STR(exp, vals[3]);
 }
 CTEST(GetFiles, File_5){
-	const char exp[] = "Direct/OneMoreDir/text.txt";
+	const char exp[] = "test/Direct/AgainText.txt";
 	ASSERT_STR(exp, vals[4]);
 }
 CTEST(GetFiles, Filedoesntexist){
-	const char exp = 0;
+	const char exp = -1;
 	char vl[5][NAMELEN];
 	int val = getFiles(vl, "ifExist");
 	ASSERT_EQUAL(val, exp);
@@ -45,9 +45,9 @@ char src5[] = "This is test source strring 3";
 char src6[] = "lol";
 char src7[] = "";
 
-char file1[] = "../data/text";//true
-char file2[] = "../data/ts/text3";//true
-char file3[] = "../data/text3";//false
+char file1[] = "data/text";//true
+char file2[] = "data/ts/text3";//true
+char file3[] = "data/text3";//false
 
 
 
@@ -110,5 +110,5 @@ CTEST(SearchTest, searchStr_test3){
 CTEST(SearchTest, searchStr_test4){
     printf("\nФайл не должен открыться\n");
     int exp = searchStr("acv", find2);
-    ASSERT_EQUAL(0, exp);
+    ASSERT_EQUAL(-1, exp);
 }
