@@ -2,12 +2,13 @@
 #include <string.h>
 #include "defines.h"
 #include "functions.h"
+
 int main(int argc, char * argv[]){
 
 	if (argc < 3) {
 		char help_flag[] = "-help";
-		if(argc == 2){
-			if(strcmp(argv[1], help_flag) == 0){
+		if (argc == 2){
+			if (strcmp(argv[1], help_flag) == 0){
 				printf("./bin/search <строка> <пути до директорий через пробел>\n");
 				return 0;
 			}
@@ -23,17 +24,14 @@ int main(int argc, char * argv[]){
 	int count_files = 0, count = 0;
 
 	//Основной цикл
-	for(int i = 2; i < argc; i++){
-
+	for (int i = 2; i < argc; i++){
 		for (int i = 0; i < FILESC; i++){
 			for (int j = 0; j < FILESC; j++){
 				files[i][j] = '\0';
 			}
 		}
 		words = 0;
-
 		count_files = count_files + getFiles(files, argv[i]);
-
 		for (int j = 0; j < words; j++){
 			count = count + searchStr(files[j], argv[1]);
 		}
@@ -47,7 +45,7 @@ int main(int argc, char * argv[]){
 		printf("Найдено %d соответствий", count);
 	}
 
-	if(count_files % 10 == 1){
+	if (count_files % 10 == 1){
 		printf(" в %d файле\n", count_files);
 	} else {
 		printf(" в %d файлах\n", count_files);

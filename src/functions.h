@@ -1,5 +1,5 @@
-#ifndef FUNC_C
-#define FUNC_C
+#ifndef FUNCTIONS_H
+#define FUNCTIONS_H
 #ifndef NAMELEN
 #define NAMELEN 50
 #endif
