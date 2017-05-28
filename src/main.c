@@ -22,6 +22,7 @@ int main(int argc, char * argv[]){
 	extern int words;
 	char files[FILESC][NAMELEN];
 	int count_files = 0, count = 0;
+	char colors[][5] = {"0;31","0;32"};
 
 	//Основной цикл
 	for (int i = 2; i < argc; i++){
@@ -35,6 +36,12 @@ int main(int argc, char * argv[]){
 		for (int j = 0; j < words; j++){
 			count = count + searchStr(files[j], argv[1]);
 		}
+	}
+
+	if (count == 0){
+		printf("%s%sm",CSI,colors[RED]);
+	} else {
+		printf("%s%sm",CSI,colors[GREEN]);
 	}
 
 	if (count % 10 == 1){
