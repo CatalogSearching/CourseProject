@@ -8,7 +8,7 @@ functions.o: src/functions.c
 main.o: src/main.c
 	gcc -Wall -Werror -c src/main.c -o build/main.o -std=gnu99
 
-test: mkDir test_main.o functions_test.o functions.o
+test: test_main.o functions_test.o functions.o
 	gcc -Wall -Werror build/functions.o build/test_main.o build/functions_test.o -o bin/test -std=gnu99
 	
 functions_test.o: test/functions_test.c
