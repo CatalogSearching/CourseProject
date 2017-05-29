@@ -45,9 +45,9 @@ char src5[] = "This is test source strring 3";
 char src6[] = "lol";
 char src7[] = "";
 
-char file1[] = "data/text";//true
-char file2[] = "data/ts/text3";//true
-char file3[] = "data/text3";//false
+char file1[] = "../data/text";//true
+char file2[] = "../data/ts/text3";//true
+char file3[] = "../data/text3";//false
 
 
 
