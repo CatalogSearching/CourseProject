@@ -5,30 +5,30 @@
 
 char vals[5][NAMELEN];
 CTEST(GetFiles, GetValue){
-	int v1 = getFiles(vals, "../test/Direct");
+	int v1 = getFiles(vals, "test/Direct");
 	const int exp = 5;
 	ASSERT_EQUAL(exp, v1);
 }
 CTEST(GetFiles, File_1){
 	for (int i = 0; i < 5; i++)
 		printf("%s\n", vals[i]);
-	const char exp[] = "../test/Direct/text.txt";
+	const char exp[] = "test/Direct/OneMoreDir/text.txt";
 	ASSERT_STR(exp, vals[0]);
 }
 CTEST(GetFiles, File_2){
-	const char exp[] = "../test/Direct/anotherDir/MoreTexts.txt";
+	const char exp[] = "test/Direct/text.txt";
 	ASSERT_STR(exp, vals[1]);
 }
 CTEST(GetFiles, File_3){
-	const char exp[] = "../test/Direct/anotherDir/textFile.txt";
+	const char exp[] = "test/Direct/anotherDir/MoreTexts.txt";
 	ASSERT_STR(exp, vals[2]);
 }
 CTEST(GetFiles, File_4){
-	const char exp[] = "../test/Direct/AgainText.txt";
+	const char exp[] = "test/Direct/anotherDir/textFile.txt";
 	ASSERT_STR(exp, vals[3]);
 }
 CTEST(GetFiles, File_5){
-	const char exp[] = "../test/Direct/OneMoreDir/text.txt";
+	const char exp[] = "test/Direct/AgainText.txt";
 	ASSERT_STR(exp, vals[4]);
 }
 CTEST(GetFiles, Filedoesntexist){
@@ -45,9 +45,9 @@ char src5[] = "This is test source strring 3";
 char src6[] = "lol";
 char src7[] = "";
 
-char file1[] = "../data/text";//true
-char file2[] = "../data/ts/text3";//true
-char file3[] = "../data/text3";//false
+char file1[] = "data/text";//true
+char file2[] = "data/ts/text3";//true
+char file3[] = "data/text3";//false
 
 
 
